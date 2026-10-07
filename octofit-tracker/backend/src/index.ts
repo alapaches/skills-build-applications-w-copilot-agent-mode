@@ -10,7 +10,6 @@ import Workout from './models/workout.js';
 import { createResourceRouter } from './routes/resourceRouter.js';
 
 const app = express();
-const port = Number(process.env.PORT ?? 8000);
 
 app.disable('x-powered-by');
 app.use(cors());
@@ -49,6 +48,4 @@ app.use((error: unknown, _request: express.Request, response: express.Response, 
   response.status(500).json({ error: 'Internal server error' });
 });
 
-app.listen(port, () => {
-  console.log(`OctoFit API listening on port ${port}`);
-});
+export default app;
